@@ -62,7 +62,7 @@ namespace Windows.UI.Xaml.Controls
 				var hasSecondaryItems = SecondaryCommands.Any();
 				if (hasSecondaryItems)
 				{
-					if (_overflowPopup is {} popup)
+					if (_overflowPopup is { } popup)
 					{
 						popup.IsOpen = true;
 					}
@@ -114,14 +114,14 @@ namespace Windows.UI.Xaml.Controls
 
 			var disposables = new CompositeDisposable(2);
 
-			if (_moreButton is {} moreButton)
+			if (_moreButton is { } moreButton)
 			{
 				moreButton.Click += OnMoreButtonClicked;
 
 				disposables.Add(() => moreButton.Click -= OnMoreButtonClicked);
 			}
 
-			if (_overflowPopup is {} overflowPopup)
+			if (_overflowPopup is { } overflowPopup)
 			{
 				overflowPopup.Closed += OnOverflowPopupClosed;
 

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Tests.Enterprise;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Private.Infrastructure
 {
@@ -12,10 +14,15 @@ namespace Private.Infrastructure
 
 		public class Utilities
 		{
+			internal static bool IsXBox { get; } = false;
 			internal static void VerifyMockDCompOutput(MockDComp.SurfaceComparison comparison, string step) { }
 			internal static void VerifyMockDCompOutput(MockDComp.SurfaceComparison comparison) { }
 
 			internal static void VerifyUIElementTree()
+			{
+			}
+
+			internal static void InjectBackButtonPress(ref bool backButtonPressHandled)
 			{
 			}
 
@@ -27,6 +34,11 @@ namespace Private.Infrastructure
 			internal static void EnableChangingTimeZone(bool isEnabled)
 			{
 
+			}
+
+			internal static FrameworkElement GetPopupOverlayElement(Popup popup)
+			{
+				return null;
 			}
 		}
 
@@ -71,6 +83,21 @@ namespace Private.Infrastructure
 			Assert.IsTrue(actual < expected, $"{actual} is not less than {expected}");
 		}
 
+		public static void VERIFY_IS_LESS_THAN_OR_EQUAL(double actual, double expected)
+		{
+			Assert.IsTrue(actual <= expected, $"{actual} is not less than {expected}");
+		}
+
+		public static void VERIFY_IS_GREATER_THAN(double actual, double expected)
+		{
+			Assert.IsTrue(actual > expected, $"{actual} is not greater than {expected}");
+		}
+
+		public static void VERIFY_IS_GREATER_THAN_OR_EQUAL(double actual, double expected)
+		{
+			Assert.IsTrue(actual >= expected, $"{actual} is not greater than {expected}");
+		}
+
 		public static void VERIFY_THROWS_WINRT(Action action, Type exceptionType)
 		{
 			try
@@ -109,6 +136,11 @@ namespace Private.Infrastructure
 		{
 			//Assert.AreEqual(expected: expected, actual: actual);
 			actual­.Should().Be(expected, message);
+		}
+
+		internal static void VERIFY_ARE_NOT_EQUAL<T>(T actual, T unexpected, string message = null)
+		{
+			actual­.Should().NotBe(unexpected, message);
 		}
 
 		internal static void VERIFY_ARE_VERY_CLOSE(double actual, double expected, double tolerance = 0.1d, string message = null)

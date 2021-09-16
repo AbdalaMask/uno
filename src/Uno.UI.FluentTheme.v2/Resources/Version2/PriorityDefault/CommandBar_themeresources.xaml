@@ -93,9 +93,9 @@
     
     <Thickness x:Key="CommandBarOverflowPresenterMargin">0,4,0,4</Thickness>
 
-    <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+    <Style TargetType="local:CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
 
-    <Style x:Key="DefaultCommandBarStyle" TargetType="CommandBar">
+    <Style x:Key="DefaultCommandBarStyle" TargetType="local:CommandBar">
         <Setter Property="Background" Value="{ThemeResource CommandBarBackground}" />
         <Setter Property="Foreground" Value="{ThemeResource CommandBarForeground}" />
         <Setter Property="Padding" Value="4,0,0,0" />
@@ -110,7 +110,7 @@
         <contract7Present:Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="CommandBar">
+                <ControlTemplate TargetType="local:CommandBar">
                     <Grid x:Name="LayoutRoot">
                         <Grid.Resources>
                             <Visibility x:Key="AppBarButtonHasFlyoutChevronVisibility">Collapsed</Visibility>
@@ -142,7 +142,8 @@
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="DisplayModeStates">
                                 <contract8Present:VisualStateGroup.Transitions>
-                                    <VisualTransition From="CompactClosed" To="CompactOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                     <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="CompactClosed" To="CompactOpenUp" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentRoot" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{ThemeResource CommandBarBackgroundOpen}" />
@@ -185,7 +186,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="CompactOpenUp" To="CompactClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="CompactOpenUp" To="CompactClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -217,7 +219,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="CompactClosed" To="CompactOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="CompactClosed" To="CompactOpenDown" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentRoot" Storyboard.TargetProperty="Background">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{ThemeResource CommandBarBackgroundOpen}" />
@@ -254,7 +257,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="CompactOpenDown" To="CompactClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="CompactOpenDown" To="CompactClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -280,7 +284,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="MinimalClosed" To="MinimalOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="MinimalClosed" To="MinimalOpenUp" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -328,7 +333,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="MinimalOpenUp" To="MinimalClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="MinimalOpenUp" To="MinimalClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -377,7 +383,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="MinimalClosed" To="MinimalOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="MinimalClosed" To="MinimalOpenDown" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -416,7 +423,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="MinimalOpenDown" To="MinimalClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="MinimalOpenDown" To="MinimalClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -456,7 +464,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="HiddenClosed" To="HiddenOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="HiddenClosed" To="HiddenOpenUp" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -490,7 +499,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="HiddenOpenUp" To="HiddenClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="HiddenOpenUp" To="HiddenClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -525,7 +535,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="HiddenClosed" To="HiddenOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="HiddenClosed" To="HiddenOpenDown" GeneratedDuration="00:00:00.250">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -550,7 +561,8 @@
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualTransition>
-                                    <VisualTransition From="HiddenOpenDown" To="HiddenClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                                    <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                                    <VisualTransition From="HiddenOpenDown" To="HiddenClosed" GeneratedDuration="00:00:00.167">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                                                 <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -882,13 +894,15 @@
                                     VerticalAlignment="Center"
                                     FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                     FontSize="20"
-                                    Glyph="&#xE10C;"
-                                    Height="{ThemeResource AppBarExpandButtonCircleDiameter}" />
+                                    Glyph="&#xe712;"
+                                    Height="20" />
                             </Button>
+                            <!--  UNO WORKAROUND: Added IsHitTestVisible="False". The Rectangle was blocking pointer events -->
                             <Rectangle x:Name="HighContrastBorder"
                                 x:DeferLoadStrategy="Lazy"
                                 Grid.ColumnSpan="2"
                                 Visibility="Collapsed"
+                                IsHitTestVisible="False"
                                 VerticalAlignment="Stretch"
                                 Stroke="{ThemeResource CommandBarHighContrastBorder}"
                                 StrokeThickness="1" />
@@ -901,7 +915,8 @@
                                 contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
                                 contract7NotPresent:CornerRadius="{ThemeResource ControlCornerRadius}" />
                         </Grid>
-                        <Popup x:Name="OverflowPopup">
+                        <!--  UNO WORKAROUND: Added IsTabStop="False". Navigation focus with keyboard was erroneously focusing on the Popup instead of the SecondaryCommands -->
+                        <Popup x:Name="OverflowPopup" IsTabStop="False">
                             <Popup.RenderTransform>
                               <TransformGroup>
                                 <TranslateTransform x:Name="OverflowContentRootMarginOffsetTransform" />
@@ -933,8 +948,8 @@
                                         <TranslateTransform x:Name="OverflowContentTransform" />
                                     </CommandBarOverflowPresenter.RenderTransform>
                                     <CommandBarOverflowPresenter.Resources>
-                                        <Style TargetType="AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
-                                        <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
+                                        <Style TargetType="local:AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
+                                        <Style TargetType="local:AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
                                     </CommandBarOverflowPresenter.Resources>
                                 </contract12NotPresent:CommandBarOverflowPresenter>
                                 <!--For 21H1 and up, we'll need to wrap the clip and presenter in a Grid which will host the Drop Shadow.-->
@@ -950,17 +965,17 @@
                                             </RectangleGeometry.Transform>
                                         </RectangleGeometry>
                                     </Grid.Clip>
-                                    <CommandBarOverflowPresenter x:Name="SecondaryItemsControl"
+                                    <local:CommandBarOverflowPresenter x:Name="SecondaryItemsControl"
                                         Style="{TemplateBinding CommandBarOverflowPresenterStyle}"
                                         IsTabStop="False">
-                                        <CommandBarOverflowPresenter.RenderTransform>
+                                        <local:CommandBarOverflowPresenter.RenderTransform>
                                             <TranslateTransform x:Name="OverflowContentTransform" />
-                                        </CommandBarOverflowPresenter.RenderTransform>
-                                        <CommandBarOverflowPresenter.Resources>
-                                            <Style TargetType="AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
-                                            <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
-                                        </CommandBarOverflowPresenter.Resources>
-                                    </CommandBarOverflowPresenter>
+                                        </local:CommandBarOverflowPresenter.RenderTransform>
+                                        <local:CommandBarOverflowPresenter.Resources>
+                                            <Style TargetType="local:AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
+                                            <Style TargetType="local:AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
+                                        </local:CommandBarOverflowPresenter.Resources>
+                                    </local:CommandBarOverflowPresenter>
                                 </contract12Present:Grid>
                                 <!-- In order to give us extra space in the windowed popup to translate things down,
                                      we add a rectangle to make the HWND taller than it otherwise would be. -->
@@ -973,9 +988,9 @@
         </Setter>
     </Style>
 
-    <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
+    <Style TargetType="local:CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
 
-    <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
+    <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="local:CommandBarOverflowPresenter">
         <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
         <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
         <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
@@ -990,7 +1005,7 @@
         <contract7Present:Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="CommandBarOverflowPresenter">
+                <ControlTemplate TargetType="local:CommandBarOverflowPresenter">
                     <Grid x:Name="LayoutRoot"
                         Background="{TemplateBinding Background}"
                         contract7Present:BackgroundSizing="InnerBorderEdge"
@@ -1035,7 +1050,7 @@
         </Setter>
     </Style>
 
-    <contract6Present:Style x:Key="CommandBarWithoutRevealStyle" TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+    <contract6Present:Style x:Key="CommandBarWithoutRevealStyle" TargetType="local:CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
 
     <Style x:Key="EllipsisButton" TargetType="Button">
         <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
@@ -1111,7 +1126,7 @@
                             </VisualStateGroup>
 
                         </VisualStateManager.VisualStateGroups>
-                        
+                        <!--  UNO WORKAROUND: Added Content TemplateBinding -->
                         <ContentPresenter x:Name="ContentPresenter"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
@@ -1119,6 +1134,7 @@
                             contract7Present:CornerRadius="{TemplateBinding CornerRadius}"
                             ContentTransitions="{TemplateBinding ContentTransitions}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Content="{TemplateBinding Content}"
                             Margin="{StaticResource AppBarEllipsisButtonInnerBorderMargin}"
                             Padding="0"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

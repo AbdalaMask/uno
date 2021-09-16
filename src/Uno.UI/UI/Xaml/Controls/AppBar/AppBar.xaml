@@ -196,7 +196,7 @@
 			<StaticResource x:Key="AppBarToggleButtonRevealBorderBrushCheckedDisabled" ResourceKey="SystemControlTransparentBrush" />
 
 		</ResourceDictionary>
-		
+
 		<ResourceDictionary x:Key="HighContrast">
 			<!-- High Contrast theme resources -->
 			<!--
@@ -321,7 +321,7 @@
 			<Thickness x:Key="AppBarTopBorderThemeThickness">0,0,0,2</Thickness>
 			<Thickness x:Key="AppBarTopThemePadding">0,0,0,0</Thickness>
 			<Thickness x:Key="AppBarExpandButtonCircleInnerPadding">3,0,3,0</Thickness>
-			
+
 			<GridLength x:Key="AppBarExpandButtonThemeWidthGridLength">48</GridLength>
 
 			<!-- Legacy brushes -->
@@ -407,7 +407,7 @@
 			<Thickness x:Key="AppBarTopBorderThemeThickness">0,0,0,0</Thickness>
 			<Thickness x:Key="AppBarTopThemePadding">0,0,0,0</Thickness>
 			<Thickness x:Key="AppBarExpandButtonCircleInnerPadding">3,0,3,0</Thickness>
-			
+
 			<GridLength x:Key="AppBarExpandButtonThemeWidthGridLength">48</GridLength>
 
 			<!-- Resources for Windows.UI.Xaml.Controls.AppBarButton -->

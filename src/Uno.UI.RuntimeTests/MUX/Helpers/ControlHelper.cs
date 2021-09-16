@@ -8,6 +8,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MUXControlsTestApp.Utilities;
 using Uno.Disposables;
 using Windows.UI.Xaml.Automation.Peers;
+using Windows.UI.Xaml.Media;
+using System.Collections.Generic;
+using Uno.Extensions;
+using Uno.UI.Helpers.WinUI;
 
 namespace Uno.UI.RuntimeTests.MUX.Helpers
 {
@@ -98,6 +102,46 @@ namespace Uno.UI.RuntimeTests.MUX.Helpers
 			bool ignorePopups = false)
 		{
 			throw new NotImplementedException();
+		}
+
+		public static async Task<Rect> GetBounds(FrameworkElement element)
+		{
+			var rect = new Rect();
+			await RunOnUIThread.ExecuteAsync(() =>
+			{
+				var point1 = element.TransformToVisual(null).TransformPoint(new Point(0, 0));
+				var point2 = element.TransformToVisual(null).TransformPoint(new Point(element.ActualWidth, element.ActualHeight));
+
+				rect.X = Math.Min(point1.X, point2.X);
+				rect.Y = Math.Min(point1.Y, point2.Y);
+				rect.Width = Math.Abs(point1.X - point2.X);
+				rect.Height = Math.Abs(point1.Y - point2.Y);
+			});
+
+			return rect;
+		}
+
+		public static async Task<bool> IsInVisualState(Control control, string visualStateGroupName, string visualStateName)
+		{
+			bool result = false;
+			await RunOnUIThread.ExecuteAsync(() =>
+			{
+				var rootVisual = (FrameworkElement)VisualTreeHelper.GetChild(control, 0);
+				var visualStateGroup = VisualStateUtil.GetVisualStateGroup(rootVisual, visualStateGroupName);
+				//var visualStateGroup = (VisualStateGroup)rootVisual.FindName(visualStateGroupName);
+				result = visualStateGroup != null && visualStateName == visualStateGroup.CurrentState.Name;
+			});
+			return result;
+		}
+
+		public static void RemoveItem<T>(IList<T> items, T item)
+		{
+			var index = items.Safe().IndexOf(item);
+			if (index == -1)
+			{
+				throw new ArgumentOutOfRangeException("The item was not in the collection.");
+			}
+			items.RemoveAt(index);
 		}
 	}
 }

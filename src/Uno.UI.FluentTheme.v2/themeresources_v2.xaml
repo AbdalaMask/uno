@@ -9687,12 +9687,12 @@
   <Thickness x:Key="AppBarButtonInnerBorderMargin">2,6,2,6</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderCompactMargin">2,6,2,22</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderOverflowMargin">4,0,4,0</Thickness>
-  <Style TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
-  <Style x:Key="AppBarButtonOverflowStyle" TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
+  <Style TargetType="controls:AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
+  <Style x:Key="AppBarButtonOverflowStyle" TargetType="controls:AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Width" Value="NaN" />
   </Style>
-  <Style x:Key="DefaultAppBarButtonStyle" TargetType="AppBarButton">
+  <Style x:Key="DefaultAppBarButtonStyle" TargetType="controls:AppBarButton">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource AppBarButtonBorderBrush}" />
@@ -9709,10 +9709,10 @@
     <contract7Present:Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="AppBarButton">
+        <ControlTemplate TargetType="controls:AppBarButton">
           <Grid x:Name="Root" Background="Transparent" MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
             <contract5NotPresent:Grid.Resources>
-              <Style x:Name="LabelOnRightStyle" TargetType="AppBarButton">
+              <Style x:Name="LabelOnRightStyle" TargetType="controls:AppBarButton">
                 <Setter Property="Width" Value="NaN" />
               </Style>
             </contract5NotPresent:Grid.Resources>
@@ -9914,7 +9914,7 @@
                 <contract7Present:BrushTransition Duration="0:0:0.083" />
               </contract7Present:Border.BackgroundTransition>
             </Border>
-            <Grid x:Name="ContentRoot" MinHeight="{ThemeResource AppBarThemeMinHeight}">
+            <Grid x:Name="ContentRoot" Background="Purple" MinHeight="{ThemeResource AppBarThemeMinHeight}">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -9924,7 +9924,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
               </Grid.RowDefinitions>
-              <Viewbox x:Name="ContentViewbox" Height="{ThemeResource AppBarButtonContentHeight}" Margin="{ThemeResource AppBarButtonContentViewboxCollapsedMargin}" HorizontalAlignment="Stretch" AutomationProperties.AccessibilityView="Raw">
+              <!-- UNO WORKAROUND: The ViewBox center should be horizontal Stretch but the Grid aligns the content left -->
+              <Viewbox x:Name="ContentViewbox" Height="{ThemeResource AppBarButtonContentHeight}" Margin="{ThemeResource AppBarButtonContentViewboxCollapsedMargin}" HorizontalAlignment="Center" AutomationProperties.AccessibilityView="Raw">
                 <ContentPresenter x:Name="Content" Content="{TemplateBinding Icon}" Foreground="{TemplateBinding Foreground}" />
               </Viewbox>
               <TextBlock x:Name="TextLabel" Grid.Row="1" Text="{TemplateBinding Label}" Foreground="{TemplateBinding Foreground}" FontSize="12" FontFamily="{TemplateBinding FontFamily}" TextAlignment="Center" TextWrapping="Wrap" Margin="{ThemeResource AppBarButtonTextLabelMargin}" AutomationProperties.AccessibilityView="Raw" />
@@ -9942,14 +9943,14 @@
   <x:Double x:Key="AppBarSeparatorWidth">1</x:Double>
   <x:Double x:Key="AppBarOverflowSeparatorHeight">1</x:Double>
   <x:Double x:Key="AppBarSeparatorCornerRadius">0.5</x:Double>
-  <Style TargetType="AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
-  <Style x:Key="DefaultAppBarSeparatorStyle" TargetType="AppBarSeparator">
+  <Style TargetType="controls:AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
+  <Style x:Key="DefaultAppBarSeparatorStyle" TargetType="controls:AppBarSeparator">
     <Setter Property="Foreground" Value="{ThemeResource AppBarSeparatorForeground}" />
     <Setter Property="Padding" Value="{ThemeResource AppBarSeparatorMargin}" />
     <Setter Property="IsTabStop" Value="False" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="AppBarSeparator">
+        <ControlTemplate TargetType="controls:AppBarSeparator">
           <Grid x:Name="RootGrid">
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="ApplicationViewStates">
@@ -9985,12 +9986,12 @@
   <Thickness x:Key="AppBarToggleButtonTextLabelMargin">2,0,2,8</Thickness>
   <Thickness x:Key="AppBarToggleButtonTextLabelOnRightMargin">8,16,12,10</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowTextLabelPadding">0,5,0,8</Thickness>
-  <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
-  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
+  <Style TargetType="controls:AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
+  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="controls:AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Width" Value="NaN" />
   </Style>
-  <Style x:Key="DefaultAppBarToggleButtonStyle" TargetType="AppBarToggleButton">
+  <Style x:Key="DefaultAppBarToggleButtonStyle" TargetType="controls:AppBarToggleButton">
     <Setter Property="Background" Value="{ThemeResource AppBarToggleButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarToggleButtonForeground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrush}" />
@@ -10008,10 +10009,10 @@
     <contract7Present:Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="AppBarToggleButton">
+        <ControlTemplate TargetType="controls:AppBarToggleButton">
           <Grid x:Name="Root" Background="Transparent" MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
             <contract5NotPresent:Grid.Resources>
-              <Style x:Name="LabelOnRightStyle" TargetType="AppBarToggleButton">
+              <Style x:Name="LabelOnRightStyle" TargetType="controls:AppBarToggleButton">
                 <Setter Property="Width" Value="NaN" />
               </Style>
             </contract5NotPresent:Grid.Resources>
@@ -14342,8 +14343,8 @@
   <Thickness x:Key="AppBarEllipsisButtonInnerBorderMargin">2,6,6,6</Thickness>
   <x:Double x:Key="AppBarMoreButtonColumnMinWidth">6</x:Double>
   <Thickness x:Key="CommandBarOverflowPresenterMargin">0,4,0,4</Thickness>
-  <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
-  <Style x:Key="DefaultCommandBarStyle" TargetType="CommandBar">
+  <Style TargetType="controls:CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+  <Style x:Key="DefaultCommandBarStyle" TargetType="controls:CommandBar">
     <Setter Property="Background" Value="{ThemeResource CommandBarBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource CommandBarForeground}" />
     <Setter Property="Padding" Value="4,0,0,0" />
@@ -14358,7 +14359,7 @@
     <contract7Present:Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="CommandBar">
+        <ControlTemplate TargetType="controls:CommandBar">
           <Grid x:Name="LayoutRoot">
             <Grid.Resources>
               <Visibility x:Key="AppBarButtonHasFlyoutChevronVisibility">Collapsed</Visibility>
@@ -14390,7 +14391,8 @@
               </VisualStateGroup>
               <VisualStateGroup x:Name="DisplayModeStates">
                 <contract8Present:VisualStateGroup.Transitions>
-                  <VisualTransition From="CompactClosed" To="CompactOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="CompactClosed" To="CompactOpenUp" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentRoot" Storyboard.TargetProperty="Background">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{ThemeResource CommandBarBackgroundOpen}" />
@@ -14433,7 +14435,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="CompactOpenUp" To="CompactClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="CompactOpenUp" To="CompactClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -14465,7 +14468,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="CompactClosed" To="CompactOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="CompactClosed" To="CompactOpenDown" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentRoot" Storyboard.TargetProperty="Background">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{ThemeResource CommandBarBackgroundOpen}" />
@@ -14502,7 +14506,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="CompactOpenDown" To="CompactClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="CompactOpenDown" To="CompactClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -14528,7 +14533,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="MinimalClosed" To="MinimalOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="MinimalClosed" To="MinimalOpenUp" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -14576,7 +14582,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="MinimalOpenUp" To="MinimalClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="MinimalOpenUp" To="MinimalClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -14625,7 +14632,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="MinimalClosed" To="MinimalOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="MinimalClosed" To="MinimalOpenDown" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -14664,7 +14672,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="MinimalOpenDown" To="MinimalClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="MinimalOpenDown" To="MinimalClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="Padding">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="14,11,14,0" />
@@ -14704,7 +14713,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="HiddenClosed" To="HiddenOpenUp" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="HiddenClosed" To="HiddenOpenUp" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -14738,7 +14748,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="HiddenOpenUp" To="HiddenClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="HiddenOpenUp" To="HiddenClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -14773,7 +14784,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="HiddenClosed" To="HiddenOpenDown" GeneratedDuration="{StaticResource ControlNormalAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlNormalAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="HiddenClosed" To="HiddenOpenDown" GeneratedDuration="00:00:00.250">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -14798,7 +14810,8 @@
                       </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                   </VisualTransition>
-                  <VisualTransition From="HiddenOpenDown" To="HiddenClosed" GeneratedDuration="{StaticResource ControlFastAnimationDuration}">
+                  <!--  UNO WORKAROUND: Use literal value of ControlFastAnimationDuration. Resolving a StaticResource string to a string non-DP causes an exception -->
+                  <VisualTransition From="HiddenOpenDown" To="HiddenClosed" GeneratedDuration="00:00:00.167">
                     <Storyboard>
                       <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MoreButton" Storyboard.TargetProperty="VerticalAlignment">
                         <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Stretch" />
@@ -15098,9 +15111,10 @@
                 </ItemsControl>
               </Grid>
               <Button x:Name="MoreButton" Foreground="{TemplateBinding Foreground}" Style="{StaticResource EllipsisButton}" Padding="{ThemeResource CommandBarMoreButtonMargin}" MinHeight="{ThemeResource AppBarThemeCompactHeight}" VerticalAlignment="Top" Grid.Column="1" Control.IsTemplateKeyTipTarget="True" IsAccessKeyScope="True" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CommandBarTemplateSettings.EffectiveOverflowButtonVisibility}">
-                <FontIcon x:Name="EllipsisIcon" VerticalAlignment="Center" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="20" Glyph="&#xE10C;" Height="{ThemeResource AppBarExpandButtonCircleDiameter}" />
+                <FontIcon x:Name="EllipsisIcon" VerticalAlignment="Center" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="20" Glyph="&#xe712;" Height="20" />
               </Button>
-              <Rectangle x:Name="HighContrastBorder" x:DeferLoadStrategy="Lazy" Grid.ColumnSpan="2" Visibility="Collapsed" VerticalAlignment="Stretch" Stroke="{ThemeResource CommandBarHighContrastBorder}" StrokeThickness="1" />
+              <!--  UNO WORKAROUND: Added IsHitTestVisible="False". The Rectangle was blocking pointer events -->
+              <Rectangle x:Name="HighContrastBorder" x:DeferLoadStrategy="Lazy" Grid.ColumnSpan="2" Visibility="Collapsed" IsHitTestVisible="False" VerticalAlignment="Stretch" Stroke="{ThemeResource CommandBarHighContrastBorder}" StrokeThickness="1" />
               <Border x:Name="OpenBorder" Grid.ColumnSpan="2" Visibility="Collapsed" VerticalAlignment="Stretch" BorderThickness="{ThemeResource CommandBarBorderThicknessOpen}" BorderBrush="{ThemeResource CommandBarBorderBrushOpen}" contract7Present:CornerRadius="{TemplateBinding CornerRadius}" contract7NotPresent:CornerRadius="{ThemeResource ControlCornerRadius}" />
             </Grid>
             <Popup x:Name="OverflowPopup">
@@ -15124,13 +15138,13 @@
                     </RectangleGeometry.Transform>
                   </RectangleGeometry>
                 </contract12NotPresent:Grid.Clip>
-                <contract12NotPresent:CommandBarOverflowPresenter x:Name="SecondaryItemsControl" Style="{TemplateBinding CommandBarOverflowPresenterStyle}" IsTabStop="False">
+                <contract12NotPresent:CommandBarOverflowPresenter Background="Orange" x:Name="SecondaryItemsControl" Style="{TemplateBinding CommandBarOverflowPresenterStyle}" IsTabStop="False">
                   <CommandBarOverflowPresenter.RenderTransform>
                     <TranslateTransform x:Name="OverflowContentTransform" />
                   </CommandBarOverflowPresenter.RenderTransform>
                   <CommandBarOverflowPresenter.Resources>
-                    <Style TargetType="AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
-                    <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
+                    <Style TargetType="controls:AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
+                    <Style TargetType="controls:AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
                   </CommandBarOverflowPresenter.Resources>
                 </contract12NotPresent:CommandBarOverflowPresenter>
                 <!--For 21H1 and up, we'll need to wrap the clip and presenter in a Grid which will host the Drop Shadow.-->
@@ -15144,15 +15158,15 @@
                       </RectangleGeometry.Transform>
                     </RectangleGeometry>
                   </Grid.Clip>
-                  <CommandBarOverflowPresenter x:Name="SecondaryItemsControl" Style="{TemplateBinding CommandBarOverflowPresenterStyle}" IsTabStop="False">
-                    <CommandBarOverflowPresenter.RenderTransform>
+                  <controls:CommandBarOverflowPresenter Background="Yellow" x:Name="SecondaryItemsControl" Style="{TemplateBinding CommandBarOverflowPresenterStyle}" IsTabStop="False">
+                    <controls:CommandBarOverflowPresenter.RenderTransform>
                       <TranslateTransform x:Name="OverflowContentTransform" />
-                    </CommandBarOverflowPresenter.RenderTransform>
-                    <CommandBarOverflowPresenter.Resources>
-                      <Style TargetType="AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
-                      <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
-                    </CommandBarOverflowPresenter.Resources>
-                  </CommandBarOverflowPresenter>
+                    </controls:CommandBarOverflowPresenter.RenderTransform>
+                    <controls:CommandBarOverflowPresenter.Resources>
+                      <Style TargetType="controls:AppBarButton" BasedOn="{StaticResource AppBarButtonOverflowStyle}" />
+                      <Style TargetType="controls:AppBarToggleButton" BasedOn="{StaticResource AppBarToggleButtonOverflowStyle}" />
+                    </controls:CommandBarOverflowPresenter.Resources>
+                  </controls:CommandBarOverflowPresenter>
                 </contract12Present:Grid>
                 <!-- In order to give us extra space in the windowed popup to translate things down,
                                      we add a rectangle to make the HWND taller than it otherwise would be. -->
@@ -15164,8 +15178,8 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
-  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
+  <Style TargetType="controls:CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
+  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="controls:CommandBarOverflowPresenter">
     <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
     <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
@@ -15180,7 +15194,7 @@
     <contract7Present:Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="CommandBarOverflowPresenter">
+        <ControlTemplate TargetType="controls:CommandBarOverflowPresenter">
           <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}" contract7Present:BackgroundSizing="InnerBorderEdge" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{ThemeResource CommandBarOverflowPresenterBorderThickness}" contract7Present:CornerRadius="{TemplateBinding CornerRadius}" contract7NotPresent:CornerRadius="{ThemeResource OverlayCornerRadius}">
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="DisplayModeStates">
@@ -15207,7 +15221,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <contract6Present:Style x:Key="CommandBarWithoutRevealStyle" TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+  <contract6Present:Style x:Key="CommandBarWithoutRevealStyle" TargetType="controls:CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
   <Style x:Key="EllipsisButton" TargetType="Button">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
@@ -15273,7 +15287,8 @@
                 </VisualState>
               </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <ContentPresenter x:Name="ContentPresenter" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" contract7Present:CornerRadius="{TemplateBinding CornerRadius}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{StaticResource AppBarEllipsisButtonInnerBorderMargin}" Padding="0" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" AutomationProperties.AccessibilityView="Raw" Control.IsTemplateFocusTarget="True" />
+            <!--  UNO WORKAROUND: Added Content TemplateBinding -->
+            <ContentPresenter x:Name="ContentPresenter" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" contract7Present:CornerRadius="{TemplateBinding CornerRadius}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{StaticResource AppBarEllipsisButtonInnerBorderMargin}" Padding="0" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" AutomationProperties.AccessibilityView="Raw" Control.IsTemplateFocusTarget="True" />
           </Grid>
         </ControlTemplate>
       </Setter.Value>

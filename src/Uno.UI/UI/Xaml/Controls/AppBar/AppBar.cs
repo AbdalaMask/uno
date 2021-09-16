@@ -30,7 +30,7 @@ namespace Windows.UI.Xaml.Controls
 			SizeChanged += (s, e) => UpdateTemplateSettings();
 		}
 
-#region IsSticky
+		#region IsSticky
 
 		public bool IsSticky
 		{
@@ -46,9 +46,9 @@ namespace Windows.UI.Xaml.Controls
 				new FrameworkPropertyMetadata(default(bool))
 			);
 
-#endregion
+		#endregion
 
-#region IsOpen
+		#region IsOpen
 
 		public bool IsOpen
 		{
@@ -64,9 +64,9 @@ namespace Windows.UI.Xaml.Controls
 			new FrameworkPropertyMetadata(default(bool))
 		);
 
-#endregion
+		#endregion
 
-#region ClosedDisplayMode
+		#region ClosedDisplayMode
 
 		public AppBarClosedDisplayMode ClosedDisplayMode
 		{
@@ -82,9 +82,9 @@ namespace Windows.UI.Xaml.Controls
 				new FrameworkPropertyMetadata(AppBarClosedDisplayMode.Compact)
 			);
 
-#endregion
+		#endregion
 
-#region LightDismissOverlayMode
+		#region LightDismissOverlayMode
 
 		public LightDismissOverlayMode LightDismissOverlayMode
 		{
@@ -100,7 +100,7 @@ namespace Windows.UI.Xaml.Controls
 				new FrameworkPropertyMetadata(default(LightDismissOverlayMode))
 			);
 
-#endregion
+		#endregion
 
 		public AppBarTemplateSettings TemplateSettings { get; }
 

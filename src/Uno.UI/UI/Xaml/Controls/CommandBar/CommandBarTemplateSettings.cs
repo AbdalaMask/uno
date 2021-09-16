@@ -2,7 +2,7 @@
 
 namespace Windows.UI.Xaml.Controls.Primitives
 {
-    public partial class CommandBarTemplateSettings : DependencyObject
+	public partial class CommandBarTemplateSettings : DependencyObject
 	{
 		private readonly CommandBar _commandBar;
 

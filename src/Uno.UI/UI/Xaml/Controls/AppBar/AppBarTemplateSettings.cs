@@ -1,9 +1,9 @@
-using Windows.Foundation;
+﻿using Windows.Foundation;
 
 namespace Windows.UI.Xaml.Controls.Primitives
 {
-	public  partial class AppBarTemplateSettings : DependencyObject
-    {
+	public partial class AppBarTemplateSettings : DependencyObject
+	{
 		private readonly AppBar _appBar;
 
 		public AppBarTemplateSettings(AppBar appBar)
@@ -17,7 +17,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(ClipRectProperty, value);
 		}
 
-		internal static DependencyProperty ClipRectProperty { get ; } =
+		internal static DependencyProperty ClipRectProperty { get; } =
 			DependencyProperty.Register(nameof(ClipRect), typeof(Rect), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(new Rect()));
 
 		public Thickness CompactRootMargin
@@ -26,7 +26,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(CompactRootMarginProperty, value);
 		}
 
-		internal static DependencyProperty CompactRootMarginProperty { get ; } =
+		internal static DependencyProperty CompactRootMarginProperty { get; } =
 			DependencyProperty.Register(nameof(CompactRootMargin), typeof(Thickness), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(new Thickness(0)));
 
 		public double CompactVerticalDelta
@@ -35,7 +35,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(CompactVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty CompactVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty CompactVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("CompactVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 
 		public Thickness HiddenRootMargin
@@ -44,7 +44,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(HiddenRootMarginProperty, value);
 		}
 
-		public static DependencyProperty HiddenRootMarginProperty { get ; } =
+		public static DependencyProperty HiddenRootMarginProperty { get; } =
 			DependencyProperty.Register("HiddenRootMargin", typeof(Thickness), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(new Thickness(0)));
 
 		public double HiddenVerticalDelta
@@ -53,7 +53,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(HiddenVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty HiddenVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty HiddenVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("HiddenVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 
 		public Thickness MinimalRootMargin
@@ -62,7 +62,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(MinimalRootMarginProperty, value);
 		}
 
-		internal static DependencyProperty MinimalRootMarginProperty { get ; } =
+		internal static DependencyProperty MinimalRootMarginProperty { get; } =
 			DependencyProperty.Register("MinimalRootMargin", typeof(Thickness), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(new Thickness(0)));
 
 		public double MinimalVerticalDelta
@@ -71,7 +71,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(MinimalVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty MinimalVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty MinimalVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("MinimalVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 
 		public double NegativeCompactVerticalDelta
@@ -80,7 +80,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(NegativeCompactVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty NegativeCompactVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty NegativeCompactVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("NegativeCompactVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 
 		public double NegativeMinimalVerticalDelta
@@ -89,7 +89,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(NegativeMinimalVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty NegativeMinimalVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty NegativeMinimalVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("NegativeMinimalVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 
 		public double NegativeHiddenVerticalDelta
@@ -98,7 +98,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
 			internal set => SetValue(NegativeHiddenVerticalDeltaProperty, value);
 		}
 
-		internal static DependencyProperty NegativeHiddenVerticalDeltaProperty { get ; } =
+		internal static DependencyProperty NegativeHiddenVerticalDeltaProperty { get; } =
 			DependencyProperty.Register("NegativeHiddenVerticalDelta", typeof(double), typeof(AppBarTemplateSettings), new FrameworkPropertyMetadata(0.0));
 	}
 }

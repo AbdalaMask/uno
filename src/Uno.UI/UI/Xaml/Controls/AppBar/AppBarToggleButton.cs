@@ -96,7 +96,7 @@ namespace Windows.UI.Xaml.Controls
 
 		public static DependencyProperty LabelPositionProperty { get; } =
 			DependencyProperty.Register(
-				"LabelPosition", 
+				"LabelPosition",
 				typeof(CommandBarLabelPosition),
 				typeof(AppBarToggleButton),
 				new FrameworkPropertyMetadata(default(CommandBarLabelPosition))
@@ -114,7 +114,7 @@ namespace Windows.UI.Xaml.Controls
 
 		public static DependencyProperty IsCompactProperty { get; } =
 			DependencyProperty.Register(
-				"IsCompact", 
+				"IsCompact",
 				typeof(bool),
 				typeof(AppBarToggleButton),
 				new FrameworkPropertyMetadata(default(bool))
@@ -132,7 +132,7 @@ namespace Windows.UI.Xaml.Controls
 
 		public static DependencyProperty DynamicOverflowOrderProperty { get; } =
 			DependencyProperty.Register(
-				"DynamicOverflowOrder", 
+				"DynamicOverflowOrder",
 				typeof(int),
 				typeof(AppBarToggleButton),
 				new FrameworkPropertyMetadata(default(int))

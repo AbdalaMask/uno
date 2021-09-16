@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -64,7 +64,7 @@ namespace Windows.UI.Xaml.Controls
 
 		public bool IsInOverflow
 		{
-			get => (bool) this.GetValue(IsInOverflowProperty);
+			get => (bool)this.GetValue(IsInOverflowProperty);
 			internal set => this.SetValue(IsInOverflowProperty, value);
 		}
 
